@@ -54,7 +54,7 @@ static inline unsigned char wirerecv(void) {
 #endif
 }
 
-void TLC59116::begin() {
+void TLC59116Output::begin() {
     if (begun_ == false) {
         Wire.begin();
         writeRegister(TLC59116_MODE1, 0x01);
@@ -85,30 +85,30 @@ void TLC59116::begin() {
 }
 
 
-void TLC59116::writeRegister(uint8_t reg, uint8_t val) {
+void TLC59116Output::writeRegister(uint8_t reg, uint8_t val) {
     Wire.beginTransmission(TLC59116_BASEADDR | (addr_ & 0x0F));
     wiresend(reg);
     wiresend(val);
     Wire.endTransmission();
 }
 
-void TLC59116::analogWrite(uint8_t chan, uint8_t b) {
+void TLC59116Output::analogWrite(uint8_t chan, uint8_t b) {
     writeRegister(TLC59116_PWM0 + (chan & 0x0F), b);
 }
 
 /* ESP home methods */
 
-void TLC59116::setup() {
+void TLC59116Output::setup() {
     this->begin();
 }
-void TLC59116::write_state(light::LightState *state) {
+void TLC59116Output::write_state(light::LightState *state) {
     ES_LOGCONFIG(TAC, state);
 }
-void TLC59116::dump_config() {
+void TLC59116Output::dump_config() {
     ESP_LOGCONFIG(TAG, "TLC59116");
     ESP_LOGCONFIG(TAG, " addr = %i", addr_)
 }
-light::LightTraits TLC59116::get_traits() {
+light::LightTraits TLC59116Output::get_traits() {
   auto traits = light::LightTraits();
   traits.set_supported_color_modes({light::ColorMode::BRIGHTNESS});
   return traits;
