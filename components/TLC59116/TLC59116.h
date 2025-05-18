@@ -110,7 +110,7 @@ class TLC59116Output : public light::LightOutput, public Component {
         void dump_config() override;
 
         /* ESP home additional methods */
-        void set_addr(uint8_t addr) {this._addr = addr;}
+        void set_addr(uint8_t addr) {addr_ = addr;}
 };
 } // namespace TLC59116
 } // namespace esphome

@@ -106,7 +106,7 @@ void TLC59116Output::write_state(light::LightState *state) {
 }
 void TLC59116Output::dump_config() {
     ESP_LOGCONFIG(TAG, "TLC59116");
-    ESP_LOGCONFIG(TAG, " addr = %i", addr_)
+    ESP_LOGCONFIG(TAG, " addr = %i", addr_);
 }
 light::LightTraits TLC59116Output::get_traits() {
   auto traits = light::LightTraits();
