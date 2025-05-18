@@ -30,7 +30,7 @@
 
 
 #include "esphome/core/log.h"
-#include <components/TLC59116/TLC59116.h>
+#include <TLC59116.h>
 
 namespace esphome {
 namespace TLC59116 {
