@@ -102,7 +102,7 @@ void TLC59116Output::setup() {
     this->begin();
 }
 void TLC59116Output::write_state(light::LightState *state) {
-    ES_LOGCONFIG(TAC, state);
+    ESP_LOGCONFIG(TAG, state);
 }
 void TLC59116Output::dump_config() {
     ESP_LOGCONFIG(TAG, "TLC59116");
