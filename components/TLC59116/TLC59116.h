@@ -34,15 +34,14 @@
 #include "esphome/components/output/float_output.h"
 #include "esphome/components/light/light_output.h"
 #include <Wire.h>
-
-namespace esphome {
-namespace TLC59116 {
-
 #if (ARDUINO >= 100) 
 # include <Arduino.h>
 #else
 # include <WProgram.h>
 #endif
+
+namespace esphome {
+namespace TLC59116 {
 
 
 #define TLC59116_BASEADDR   0b1100000

@@ -29,8 +29,8 @@
  */
 
 
+#include "TLC59116.h"
 #include "esphome/core/log.h"
-#include <TLC59116.h>
 
 namespace esphome {
 namespace TLC59116 {
