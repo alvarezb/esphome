@@ -91,9 +91,9 @@ namespace TLC59116 {
 
 class TLC59116 : public light::LightOutput, public Component {
     protected:
-        uint8_t _addr = 0;
+        uint8_t addr_ = 0;
         void writeRegister(uint8_t reg, uint8_t val);
-        bool _begun = false;
+        bool begun_ = false;
         static const uint8_t pinmap[8];
         static const uint8_t numbers[10];
 

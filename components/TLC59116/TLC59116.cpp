@@ -55,38 +55,38 @@ static inline unsigned char wirerecv(void) {
 }
 
 void TLC59116::begin() {
-    if (this->_begun == false) {
+    if (begun_ == false) {
         Wire.begin();
-        this->writeRegister(TLC59116_MODE1, 0x01);
+        writeRegister(TLC59116_MODE1, 0x01);
         delay(1);
-        this->writeRegister(TLC59116_MODE2, 0x00);
-        this->writeRegister(TLC59116_LEDOUT0, 0b10101010);
-        this->writeRegister(TLC59116_LEDOUT1, 0b10101010);
-        this->writeRegister(TLC59116_LEDOUT2, 0b10101010);
-        this->writeRegister(TLC59116_LEDOUT3, 0b10101010);
-        this->analogWrite(0, 0);
-        this->analogWrite(1, 0);
-        this->analogWrite(2, 0);
-        this->analogWrite(3, 0);
-        this->analogWrite(4, 0);
-        this->analogWrite(5, 0);
-        this->analogWrite(6, 0);
-        this->analogWrite(7, 0);
-        this->analogWrite(8, 0);
-        this->analogWrite(9, 0);
-        this->analogWrite(10, 0);
-        this->analogWrite(11, 0);
-        this->analogWrite(12, 0);
-        this->analogWrite(13, 0);
-        this->analogWrite(14, 0);
-        this->analogWrite(15, 0);
+        writeRegister(TLC59116_MODE2, 0x00);
+        writeRegister(TLC59116_LEDOUT0, 0b10101010);
+        writeRegister(TLC59116_LEDOUT1, 0b10101010);
+        writeRegister(TLC59116_LEDOUT2, 0b10101010);
+        writeRegister(TLC59116_LEDOUT3, 0b10101010);
+        analogWrite(0, 0);
+        analogWrite(1, 0);
+        analogWrite(2, 0);
+        analogWrite(3, 0);
+        analogWrite(4, 0);
+        analogWrite(5, 0);
+        analogWrite(6, 0);
+        analogWrite(7, 0);
+        analogWrite(8, 0);
+        analogWrite(9, 0);
+        analogWrite(10, 0);
+        analogWrite(11, 0);
+        analogWrite(12, 0);
+        analogWrite(13, 0);
+        analogWrite(14, 0);
+        analogWrite(15, 0);
     }
-    _begun = 1;
+    begun_ = 1;
 }
 
 
 void TLC59116::writeRegister(uint8_t reg, uint8_t val) {
-    Wire.beginTransmission(TLC59116_BASEADDR | (_addr & 0x0F));
+    Wire.beginTransmission(TLC59116_BASEADDR | (addr_ & 0x0F));
     wiresend(reg);
     wiresend(val);
     Wire.endTransmission();
@@ -106,7 +106,7 @@ void TLC59116::write_state(light::LightState *state) {
 }
 void TLC59116::dump_config() {
     ESP_LOGCONFIG(TAG, "TLC59116");
-    ESP_LOGCONFIG(TAG, " addr = %i", this->_addr)
+    ESP_LOGCONFIG(TAG, " addr = %i", addr_)
 }
 light::LightTraits TLC59116::get_traits() {
   auto traits = light::LightTraits();
