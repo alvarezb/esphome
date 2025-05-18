@@ -91,9 +91,9 @@ namespace TLC59116 {
 
 class TLC59116 : public light::LightOutput, public Component {
     protected:
-        uint8_t _addr;
+        uint8_t _addr = 0;
         void writeRegister(uint8_t reg, uint8_t val);
-        uint8_t _begun;
+        bool _begun = false;
         static const uint8_t pinmap[8];
         static const uint8_t numbers[10];
 
@@ -101,22 +101,10 @@ class TLC59116 : public light::LightOutput, public Component {
         output::FloatOutput *output_;
 
     public:
-        /*! Create a new TLC59116 board with the default address of 0 */
-        TLC59116();
-        /*! Create a new TLC59116 board with the default provided address */
-        TLC59116(uint8_t addr);
         /*! Initialize the board, set all channels to 0, and apply the default pin mapping */
         void begin();
         /*! Set the channel (0-15) to the given brightness value (0-255) */
         void analogWrite(uint8_t channel, uint8_t brightness);
-        /*! Display the given number at the specified brightness using the current pin mapping */
-        void displayNumber(uint8_t number, uint8_t brightness);
-        /*! Load a new pin mapping.
-         *
-         * Pin mappings are in the form of an 8-byte array with each byte representing the mapping for segments A to G and DP in that order.
-         * The upper nibble (4 bits) of each byte is the analog channel number for the left-hand digit. The lower nibble is the channel number for the right-hand digit.
-         */
-        void setPinMapping(const uint8_t *mapping);
 
         /* ESP home required methods*/
         void setup() override;
