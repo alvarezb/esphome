@@ -89,7 +89,7 @@ namespace TLC59116 {
  *  for displaying numeric values on a 7 segment display.
  */
 
-class TLC59116 : public light::LightOutput, public Component {
+class TLC59116Output : public light::LightOutput, public Component {
     protected:
         uint8_t addr_ = 0;
         void writeRegister(uint8_t reg, uint8_t val);
