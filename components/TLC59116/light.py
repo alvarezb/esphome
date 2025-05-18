@@ -4,7 +4,7 @@ from esphome.components import light, output
 from esphome.const import CONF_OUTPUT_ID, CONF_OUTPUT
 
 TLC59116_ns = cg.esphome_ns.namespace("TLC59116")
-TLC59116 = TLC59116_ns.class_("TLC59116", light.LightOutput)
+TLC59116 = TLC59116_ns.class_("TLC59116Output", light.LightOutput)
 
 CONFIG_SCHEMA = light.BRIGHTNESS_ONLY_LIGHT_SCHEMA.extend(
     {

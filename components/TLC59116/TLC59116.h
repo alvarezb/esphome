@@ -94,10 +94,7 @@ class TLC59116Output : public light::LightOutput, public Component {
         uint8_t addr_ = 0;
         void writeRegister(uint8_t reg, uint8_t val);
         bool begun_ = false;
-        static const uint8_t pinmap[8];
-        static const uint8_t numbers[10];
 
-        const uint8_t *_currentPinMapping;
         output::FloatOutput *output_;
 
     public:
