@@ -57,7 +57,7 @@ static inline unsigned char wirerecv(void) {
 void TLC59116Output::begin() {
     ESP_LOGD(TAG, "entering begin");
     if (begun_ == false) {
-        ESP_LOGD(TAG, "doing setup")
+        ESP_LOGD(TAG, "doing setup");
         Wire.begin();
         writeRegister(TLC59116_MODE1, 0x01);
         delay(1);
