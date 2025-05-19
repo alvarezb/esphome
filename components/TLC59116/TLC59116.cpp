@@ -111,7 +111,7 @@ void TLC59116Output::dump_config() {
     ESP_LOGCONFIG(TAG, " addr = %i", addr_);
 }
 light::LightTraits TLC59116Output::get_traits() {
-  ESP_LOGD(TAG, "get_traits")
+  ESP_LOGD(TAG, "get_traits");
   auto traits = light::LightTraits();
   traits.set_supported_color_modes({light::ColorMode::BRIGHTNESS});
   return traits;
