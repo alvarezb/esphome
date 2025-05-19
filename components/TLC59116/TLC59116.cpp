@@ -55,7 +55,9 @@ static inline unsigned char wirerecv(void) {
 }
 
 void TLC59116Output::begin() {
+    ESP_LOGD(TAG, "entering begin");
     if (begun_ == false) {
+        ESP_LOGD(TAG, "doing setup")
         Wire.begin();
         writeRegister(TLC59116_MODE1, 0x01);
         delay(1);
@@ -81,11 +83,12 @@ void TLC59116Output::begin() {
         analogWrite(14, 0);
         analogWrite(15, 255);
     }
-    begun_ = 1;
+    begun_ = true;
 }
 
 
 void TLC59116Output::writeRegister(uint8_t reg, uint8_t val) {
+    ESP_LOGD(TAG, "writeRegister");
     Wire.beginTransmission(TLC59116_BASEADDR | (addr_ & 0x0F));
     wiresend(reg);
     wiresend(val);
@@ -93,6 +96,7 @@ void TLC59116Output::writeRegister(uint8_t reg, uint8_t val) {
 }
 
 void TLC59116Output::analogWrite(uint8_t chan, uint8_t b) {
+    ESP_LOGD(TAG, "analogWrite");
     writeRegister(TLC59116_PWM0 + (chan & 0x0F), b);
 
 }
@@ -100,16 +104,24 @@ void TLC59116Output::analogWrite(uint8_t chan, uint8_t b) {
 /* ESP home methods */
 
 void TLC59116Output::setup() {
+    ESP_LOGD(TAG, "setup");
     begin();
 }
 void TLC59116Output::write_state(light::LightState *state) {
-    ESP_LOGD(TAG, "new light state set");
+    ESP_LOGD(TAG, "write_state");
 }
 
 void TLC59116Output::dump_config() {
+    ESP_LOGD(TAG, "dump_config");
     ESP_LOGCONFIG(TAG, "TLC59116");
     ESP_LOGCONFIG(TAG, " addr = %i", addr_);
 }
+
+void TLC59116Output::set_output(output::FloatOutput *output) {
+    ESP_LOGD(TAG, "set_outpt");
+    ESP_LOGD(TAG, "output state: %i", output->state);
+}
+
 light::LightTraits TLC59116Output::get_traits() {
   ESP_LOGD(TAG, "get_traits");
   auto traits = light::LightTraits();
