@@ -100,7 +100,7 @@ void TLC59116Output::analogWrite(uint8_t chan, uint8_t b) {
 /* ESP home methods */
 
 void TLC59116Output::setup() {
-    this->begin();
+    begin();
 }
 void TLC59116Output::write_state(light::LightState *state) {
     ESP_LOGD(TAG, "new light state set");
