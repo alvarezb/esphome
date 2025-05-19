@@ -105,9 +105,9 @@ class TLC59116Output : public light::LightOutput, public Component {
         /* ESP home required methods*/
         void setup() override;
         light::LightTraits get_traits() override;
-        void set_output(output::FloatOutput *output) override;
         void write_state(light::LightState *state) override;
         void dump_config() override;
+        void set_output(output::FloatOutput *output);
 
         /* ESP home additional methods */
         void set_addr(uint8_t addr) {addr_ = addr;}
