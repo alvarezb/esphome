@@ -102,6 +102,7 @@ void TLC59116Output::setup() {
     this->begin();
 }
 void TLC59116Output::write_state(light::LightState *state) {
+    ESP_LOGD(TAG, "new light state set");
 }
 
 void TLC59116Output::dump_config() {
