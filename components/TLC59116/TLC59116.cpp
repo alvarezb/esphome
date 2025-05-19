@@ -118,8 +118,7 @@ void TLC59116Output::dump_config() {
 }
 
 void TLC59116Output::set_output(output::FloatOutput *output) {
-    ESP_LOGD(TAG, "set_outpt");
-    ESP_LOGD(TAG, "output state: %i", output->state);
+    ESP_LOGD(TAG, "set_output");
 }
 
 light::LightTraits TLC59116Output::get_traits() {
