@@ -17,7 +17,7 @@ CONFIG_SCHEMA = cv.Schema(
         cv.GenerateID(): cv.declare_id(TLC59116),
         cv.Required(CONF_DATA_PIN): pins.gpio_output_pin_schema,
         cv.Required(CONF_CLOCK_PIN): pins.gpio_output_pin_schema,
-        cv.Optional(CONF_NUM_CHIPS, default=1): cv.int_range(min=1, max=85),
+        cv.Optional(CONF_NUM_CHIPS, default=1): cv.int_range(min=1, max=85),  # type: ignore
     }
 ).extend(cv.COMPONENT_SCHEMA)
 
