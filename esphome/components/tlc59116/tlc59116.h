@@ -1,6 +1,6 @@
 #pragma once
-// TLC59116 12-Channel, 16-Bit PWM LED Driver
-// https://www.ti.com/lit/ds/symlink/tlc59116.pdf
+// TLC59116 16-Channel, 8-Bit PWM LED Driver
+// https://www.ti.com/product/TLC59116
 
 #include "esphome/core/component.h"
 #include "esphome/core/hal.h"
@@ -12,7 +12,7 @@ namespace tlc59116 {
 
 class TLC59116 : public Component {
  public:
-  const uint8_t N_CHANNELS_PER_CHIP = 12;
+  const uint8_t N_CHANNELS_PER_CHIP = 16;
 
   void set_data_pin(GPIOPin *data_pin) { data_pin_ = data_pin; }
   void set_clock_pin(GPIOPin *clock_pin) { clock_pin_ = clock_pin; }

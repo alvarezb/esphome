@@ -1,12 +1,12 @@
-# this component is for the "TLC59116 12-Channel, 12-Bit PWM LED Driver" [https://www.ti.com/lit/ds/symlink/tlc59116.pdf],
-# which is used e.g. on [https://www.adafruit.com/product/1455]. The code is based on the TLC5947 component by @rnauber.
+# this component is for the "TLC59116 16-Channel, 8-Bit PWM LED Driver" [https://www.ti.com/product/TLC59116],
+# The code is based on the TLC5947 component by @rnauber.
 
 from esphome import pins
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.const import CONF_CLOCK_PIN, CONF_DATA_PIN, CONF_ID, CONF_NUM_CHIPS
 
-CODEOWNERS = ["@IJIJI"]
+CODEOWNERS = ["@alvarezb"]
 
 tlc59116_ns = cg.esphome_ns.namespace("tlc59116")
 TLC59116 = tlc59116_ns.class_("TLC59116", cg.Component)
