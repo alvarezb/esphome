@@ -90,7 +90,7 @@ void TLC59116::transfer_(uint8_t send) {
     this->clock_pin_->digital_write(false);
   }
 }
-void TLC59116::set_channel_value(uint16_t channel, uint16_t value) {
+void TLC59116::set_channel_value(uint16_t channel, uint8_t value) {
   if (channel >= this->num_chips_ * N_CHANNELS_PER_CHIP)
     return;
   if (this->pwm_amounts_[channel] != value) {

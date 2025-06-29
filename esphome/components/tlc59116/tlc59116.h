@@ -27,7 +27,7 @@ class TLC59116 : public Component {
   /// Send new values if they were updated.
   void loop() override;
 
-  void set_channel_value(uint16_t channel, uint16_t value);
+  void set_channel_value(uint16_t channel, uint8_t value);
 
  protected:
   void transfer_(uint8_t send);
